@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A12D7442417B31700DE3954 /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12D7412417B31700DE3954 /* GeneralHelper.swift */; };
+		0A12D7452417B31700DE3954 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12D7432417B31700DE3954 /* NetworkHelper.swift */; };
 		0A475F36240E6B120067C4DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A475F35240E6B120067C4DF /* AppDelegate.swift */; };
 		0A475F38240E6B120067C4DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A475F37240E6B120067C4DF /* SceneDelegate.swift */; };
 		0A475F3D240E6B120067C4DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A475F3B240E6B120067C4DF /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A12D7412417B31700DE3954 /* GeneralHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
+		0A12D7432417B31700DE3954 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		0A475F32240E6B120067C4DF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A475F35240E6B120067C4DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A475F37240E6B120067C4DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A12D73F2417B31700DE3954 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A12D7402417B31700DE3954 /* general */,
+				0A12D7422417B31700DE3954 /* network */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		0A12D7402417B31700DE3954 /* general */ = {
+			isa = PBXGroup;
+			children = (
+				0A12D7412417B31700DE3954 /* GeneralHelper.swift */,
+			);
+			path = general;
+			sourceTree = "<group>";
+		};
+		0A12D7422417B31700DE3954 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				0A12D7432417B31700DE3954 /* NetworkHelper.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
 		0A475F29240E6B120067C4DF = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +85,7 @@
 		0A475F34240E6B120067C4DF /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				0A12D73F2417B31700DE3954 /* helpers */,
 				0A475F4D240E6F6D0067C4DF /* model */,
 				0A475F4B240E6B570067C4DF /* controller */,
 				0A475F4C240E6F5C0067C4DF /* view */,
@@ -162,7 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A12D7442417B31700DE3954 /* GeneralHelper.swift in Sources */,
 				0A475F4A240E6B4E0067C4DF /* LoginViewController.swift in Sources */,
+				0A12D7452417B31700DE3954 /* NetworkHelper.swift in Sources */,
 				0A475F36240E6B120067C4DF /* AppDelegate.swift in Sources */,
 				0A475F38240E6B120067C4DF /* SceneDelegate.swift in Sources */,
 			);

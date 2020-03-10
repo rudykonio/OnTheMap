@@ -37,6 +37,8 @@ class NetworkHelper {
                             //success
                             DispatchQueue.main.async {
                                 loginVC.performSegue(withIdentifier: "mapTableSegue", sender: loginVC)
+                                emailUITF.text = loginVC.email
+                                passwordUITF.text = loginVC.password
                             }
                     }
                 }catch  {
