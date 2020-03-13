@@ -12,6 +12,7 @@ import Network
 class NetworkHelper {
     private init(){}
     static func logInSession(_ emailUITF:UITextField,_ passwordUITF:UITextField,_ loginVC:LoginViewController){
+        loginVC.logInBTN.isEnabled = false
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -32,6 +33,9 @@ class NetworkHelper {
                         if let message =  json["error"] as! String?{
                         //error
                             GeneralHelper.showAlert(message,loginVC)
+                                        DispatchQueue.main.async{
+                             loginVC.logInBTN.isEnabled = true
+                            }
                         }
                         else{
                             //success
@@ -39,6 +43,7 @@ class NetworkHelper {
                                 loginVC.performSegue(withIdentifier: "mapTableSegue", sender: loginVC)
                                 emailUITF.text = loginVC.email
                                 passwordUITF.text = loginVC.password
+                                loginVC.logInBTN.isEnabled = true
                             }
                     }
                 }catch  {
