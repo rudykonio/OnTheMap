@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
+    var key:String?
     @IBOutlet weak var logInBTN: UIButton!{
         didSet{
                logInBTN.layer.cornerRadius = 4
@@ -18,32 +19,23 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var passwordUITF: UITextField!
     let password = "  Password"
     let email = "  Email"
-    let emptyString = ""
     @IBAction func emailTFBeginEditing(_ sender: Any) {
-          if(emailUITF.text == email){
-              emailUITF.text = emptyString
-          }
+        GeneralHelper.setEmptyString(email,emailUITF)
     }
     
     @IBAction func emailTFEndEditing(_ sender: Any) {
-        if(emailUITF.text == emptyString){
-            emailUITF.text = email
-        }
+        GeneralHelper.setDefaultString(email,emailUITF)
     }
     
     @IBAction func passwordTFBeginEditing(_ sender: Any) {
-        if(passwordUITF.text == password){
-            passwordUITF.text = emptyString
-        }
+        GeneralHelper.setEmptyString(password, passwordUITF)
     }
     
     @IBAction func passwordTFEndEditing(_ sender: Any) {
-        if(passwordUITF.text == emptyString){
-            passwordUITF.text = password
-        }
+        GeneralHelper.setDefaultString(password, passwordUITF)
     }
     @IBAction func logInClick(_ sender: Any) {
-                if(notNullOrEmpty(emailUITF)&&notNullOrEmpty(passwordUITF)
+        if(GeneralHelper.notNullOrEmpty(emailUITF)&&GeneralHelper.notNullOrEmpty(passwordUITF)
                     && (emailUITF.text != email && passwordUITF.text != password)){
             NetworkHelper.logInSession(emailUITF,passwordUITF,self)
         }
@@ -58,13 +50,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
-    func notNullOrEmpty(_ uiTF:UITextField?) -> Bool{
-        guard uiTF != nil && uiTF!.text != nil && uiTF!.text != emptyString else {
-            return false
-        }
-        return true
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -75,6 +60,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         emailUITF.delegate = self
         passwordUITF.delegate = self
         passwordUITF.isSecureTextEntry = true
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier! == "mapTableSegue"){
+            (segue.destination as! TabBarController).key = self.key
+        }
     }
 }

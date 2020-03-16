@@ -19,4 +19,23 @@ class GeneralHelper{
           currentVC.present(alert, animated: true, completion: nil)
         }
     }
+    
+    static func setEmptyString(_ defaultStr:String,_ textField:UITextField){
+        if(textField.text == defaultStr){
+            textField.text = ""
+        }
+    }
+    
+    static func setDefaultString(_ defaultStr:String,_ textfield:UITextField){
+        if(textfield.text == ""){
+            textfield.text = defaultStr
+        }
+    }
+    
+   static func notNullOrEmpty(_ uiTF:UITextField?) -> Bool{
+        guard uiTF != nil && uiTF!.text != nil && uiTF!.text != "" else {
+            return false
+        }
+        return true
+    }
 }
